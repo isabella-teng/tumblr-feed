@@ -1,0 +1,6 @@
+framework module Pods_Tumblr_FeedTests {
+  umbrella header "Pods-Tumblr FeedTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
