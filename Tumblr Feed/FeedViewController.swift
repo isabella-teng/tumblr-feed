@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -41,7 +42,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 // TODO: Reload the table view
                 self.tableView.delegate = self
                 self.tableView.dataSource = self
-                
+                self.tableView.reloadData()
             }
         }
         task.resume()
@@ -52,22 +53,28 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.posts.count
     }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell()
-//        cell.textLabel?.text = "This is row \(indexPath.row)"
-//        
-//        return cell
-//    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as! PhotoCell
-        // Configure PhotoCell using the outlets that you've defined.
         
+        let post = posts[indexPath.row]
+        if let photos = post["photos"] as? [[String: Any]] {
+            // photos is NOT nil, we can use it!
+            // TODO: Get the photo url
+            // Get the first photo in the photos array
+            let photo = photos[0]
+            // Get the original size dictionary from the photo
+            let originalSize = photo["original_size"] as! [String: Any]
+            // Get the url string from the original size dictionary
+            let urlString = originalSize["url"] as! String
+            // Create the url string using the urlString
+            let url = URL(string: urlString)
+            cell.photoView.af_setImage(withURL: url!)
+        }
+    
         return cell
     }
 
