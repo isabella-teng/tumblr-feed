@@ -8,11 +8,15 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var posts: [[String: Any]] = []
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -35,6 +39,9 @@ class FeedViewController: UIViewController {
                 self.posts = responseDictionary["posts"] as! [[String: Any]]
                 
                 // TODO: Reload the table view
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                
             }
         }
         task.resume()
@@ -45,6 +52,24 @@ class FeedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = UITableViewCell()
+//        cell.textLabel?.text = "This is row \(indexPath.row)"
+//        
+//        return cell
+//    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as! PhotoCell
+        // Configure PhotoCell using the outlets that you've defined.
+        
+        return cell
+    }
 
     /*
     // MARK: - Navigation
