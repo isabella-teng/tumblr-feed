@@ -11,10 +11,9 @@ import AlamofireImage
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var posts: [[String: Any]] = []
+   public var posts: [[String: Any]] = []
 
     @IBOutlet weak var tableView: UITableView!
-    
     
     override func viewDidLoad() {
         
@@ -46,8 +45,14 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
         task.resume()
+        
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,7 +64,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as! PhotoCell
-        
+        cell.selectionStyle = .none
+
         let post = posts[indexPath.row]
         if let photos = post["photos"] as? [[String: Any]] {
             // photos is NOT nil, we can use it!
@@ -74,18 +80,16 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let url = URL(string: urlString)
             cell.photoView.af_setImage(withURL: url!)
         }
-    
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let destinationViewController = segue.destination as! PhotosDetailsViewController
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)
+        destinationViewController.post = posts[indexPath!.row]
     }
-    */
 
+    
+        
 }

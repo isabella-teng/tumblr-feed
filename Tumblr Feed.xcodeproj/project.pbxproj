@@ -17,6 +17,7 @@
 		FA3543861EFAEB9E008CC7B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3543841EFAEB9E008CC7B1 /* LaunchScreen.storyboard */; };
 		FA3543911EFAEB9E008CC7B1 /* Tumblr_FeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3543901EFAEB9E008CC7B1 /* Tumblr_FeedTests.swift */; };
 		FA35439C1EFAEB9E008CC7B1 /* Tumblr_FeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35439B1EFAEB9E008CC7B1 /* Tumblr_FeedUITests.swift */; };
+		FA3F74F01EFC5BD700D772A9 /* PhotosDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F74EF1EFC5BD700D772A9 /* PhotosDetailsViewController.swift */; };
 		FA7FF4CB1EFAEEA400D91990 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FF4CA1EFAEEA400D91990 /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		FA3543971EFAEB9E008CC7B1 /* Tumblr FeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tumblr FeedUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA35439B1EFAEB9E008CC7B1 /* Tumblr_FeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tumblr_FeedUITests.swift; sourceTree = "<group>"; };
 		FA35439D1EFAEB9E008CC7B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3F74EF1EFC5BD700D772A9 /* PhotosDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosDetailsViewController.swift; sourceTree = "<group>"; };
 		FA7FF4CA1EFAEEA400D91990 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,9 +143,10 @@
 			children = (
 				FA35437B1EFAEB9E008CC7B1 /* AppDelegate.swift */,
 				FA35437F1EFAEB9E008CC7B1 /* Main.storyboard */,
-				DF4C09D81EFAF4A1001D5809 /* PhotoCell.swift */,
 				FA7FF4CA1EFAEEA400D91990 /* FeedViewController.swift */,
+				DF4C09D81EFAF4A1001D5809 /* PhotoCell.swift */,
 				FA3543821EFAEB9E008CC7B1 /* Assets.xcassets */,
+				FA3F74EF1EFC5BD700D772A9 /* PhotosDetailsViewController.swift */,
 				FA3543841EFAEB9E008CC7B1 /* LaunchScreen.storyboard */,
 				FA3543871EFAEB9E008CC7B1 /* Info.plist */,
 			);
@@ -451,6 +454,7 @@
 			files = (
 				FA7FF4CB1EFAEEA400D91990 /* FeedViewController.swift in Sources */,
 				DF4C09D91EFAF4A1001D5809 /* PhotoCell.swift in Sources */,
+				FA3F74F01EFC5BD700D772A9 /* PhotosDetailsViewController.swift in Sources */,
 				FA35437C1EFAEB9E008CC7B1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
